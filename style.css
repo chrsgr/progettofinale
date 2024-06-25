@@ -1,0 +1,189 @@
+
+.game-window {
+  position: absolute;
+  width: 100%; 
+  height: 100%; 
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /*  evita che la pagina possa essere scrollata */
+  
+}
+
+
+.imgB {
+  left: 35px;
+  box-shadow: 0px 0px 30px rgb(17, 28, 227); /*ombra con trasparenza */
+
+}
+
+
+.imgF {
+ 
+  left: 100px;
+   box-shadow: 0px 0px 30px rgb(233, 12, 214); 
+
+}
+
+.imgY {
+  box-shadow: 0px 0px 30px rgb(248, 178, 3); 
+  left: 165px;
+}
+
+
+.imgB, .imgF, .imgY {
+  position: absolute;
+  bottom: 40px; 
+  width: 40px; /* larghezza  */
+  height: 40px; /*  l'altezza  */
+  border-radius: 8px; 
+  cursor: pointer; /* cursore al passaggio del mouse */
+
+}
+
+
+.home-image {
+  position: absolute;
+  width: 40px; 
+  height: 40px;
+  cursor: pointer; 
+  right: 35px; 
+  top: 20px; 
+}
+
+
+.istruzioni-img{
+  position: absolute;
+  width: 40px; 
+  height: 40px;
+  cursor: pointer; 
+  right: 90px; 
+  top: 20px; 
+}
+
+.start-image {
+  width: 40px;
+  height: 40px;
+  top: 20px; 
+  cursor: pointer; 
+
+}
+
+.stop-image {
+  width: 35px; 
+  height: 35px;
+  top: 20px; 
+  cursor: pointer; 
+
+}
+
+.startHome{
+
+  position: fixed;
+  top: 255px; 
+  right: 60px; 
+  padding: 20px 30px; 
+  font-size: 28px; 
+  border-radius: 50px;
+  background-color: white;
+  cursor: pointer; 
+
+
+}
+
+
+.snakeImage {
+  height: 625px;
+   width: auto; 
+   margin-left: 150px; 
+   margin-top: 200px; 
+   position: relative;
+}
+
+
+.snakeTitle {
+  position: fixed;
+  font-size: 110px;
+  font-family: 'Raleway', sans-serif; 
+  color: #edf7f7; 
+  text-shadow: 3px 3px 0 #000, 6px 6px 0 #555, 9px 9px 0 #aaa; /* Effetto 3D con ombre multiple */
+  margin-top: 60px;
+  margin-left: 500px;
+}
+
+
+.volumImage{
+
+  position: absolute;
+  width: 40px; 
+  height: auto;
+  right: 20px; 
+  bottom: 40px; 
+  cursor: pointer; 
+}
+
+.snow-Image{
+  position: absolute;
+  width: 40px; 
+  height: auto;
+  right: 80px; 
+  bottom: 40px; 
+  cursor: pointer; 
+}
+
+
+.blueFlower{
+  position: absolute;
+  height: 150px;
+  width: auto; 
+  margin-top: 600px;
+  margin-left: 1100px;
+
+}
+
+
+.fucsiaFlower{
+  position: absolute;
+  height: 100px;
+  width: auto; 
+  margin-top: 400px;
+  margin-left: 1200px;
+  
+
+}
+
+.greenFlower{
+  position: absolute;
+  height: 150px;
+  width: auto; 
+  margin-top: 600px;
+  margin-left: 300px;
+
+}
+
+.redFlower{
+  position: absolute;
+  height: 100px;
+  width: auto; 
+  margin-top: 300px; 
+  margin-left: 200px;
+
+}
+
+
+.infoImg{
+  position: absolute;
+  width: 60px; 
+  height: auto;
+  left: 20px; 
+  bottom: 40px;
+  cursor: pointer; 
+}
+
+
+.start-image:hover, .stop-image:hover, .volumImage:hover, .snow-Image:hover, .infoImg:hover, .home-image:hover, .imgB :hover, .imgF :hover, .imgY :hover, .istruzioni-img :hover {
+  opacity: 0.8; /* Effetto di opacità al passaggio del mouse */
+  
+}

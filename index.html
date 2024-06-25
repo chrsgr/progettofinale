@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@900&display=swap"> 
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="/title.js"></script>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+
+    <title>Snake 3D</title>
+   
+</head>
+<body>
+
+
+
+
+    <div><h1 id="snakeTitle" class="snakeTitle">Snake 3D</h1> </div>
+    
+    <div id="container">
+        <img id="snakeImage" src="snake.png" alt="Snake Image" class="snakeImage">
+        <button class="startHome" onclick="goToIndexPage()" id="startHome">START</button>
+    </div>
+
+
+    <audio id="audio">
+        <source src="/intro.mp3" type="audio/mpeg">
+    </audio>
+    
+
+    <img id="volumButtom" src="volum.png"  class="volumImage">
+
+
+    <img id="blueFlowe" src="b.png"  class="blueFlower">
+    <img id="fucsiaFlowe" src="f.png"  class="fucsiaFlower">
+    <img id="redFlowe" src="r.png"  class="redFlower">
+    <img id="greenFlowe" src="v.png"  class="greenFlower">
+
+    <img id="info" src="info.png"  class="infoImg" onclick="goToPopUp()">
+
+
+</body>
+</html>
+
+
+
+
+<style>
+    body {
+        background: linear-gradient(to right, lightblue, #dda0dd, rgb(250, 193, 86));
+        margin: 0;
+        display: flex;           
+        height: 100vh;
+    }
+    #container {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+</style>

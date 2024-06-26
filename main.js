@@ -859,6 +859,7 @@ function goToIstruction() {
       <p>Snow = the snake's speed increases</p>
       <p>Home = return to the home page</p>
       <p>Volume = enable/disable audio</p>
+      <p>Camera = change the point of view</p>
       <p>If you click on the colors (blue, fuchsia, orange) it will change color</p>
       <p>Use the keyboard arrows to move the snake</p>
       <button id="closePopUp">Chiudi</button>

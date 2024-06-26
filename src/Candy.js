@@ -15,10 +15,6 @@ export default class Candy extends Entity {
 		const mesh = new Mesh(GEOMETRY, MATERIAL)
 		super(mesh, resolution)
 
-		if (color) {
-			MATERIAL.color.set(color)
-		}
-
 		this.points = 1 
 		this.mesh.scale.setScalar(0.5 + (this.points * 0.5) / 3)
 	}

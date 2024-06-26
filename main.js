@@ -134,7 +134,7 @@ function applyPalette(paletteName) {
 }
 
 
-
+//creare interfacce di controllo interattive
 if (gui) {
 	gui
 		.addColor( 'groundColor').name('Ground color').onChange((val) => planeMaterial.color.set(val))
@@ -214,10 +214,26 @@ const size = {
 };
 
 
-const fov = 70; //avvicinammento o meno alla scena
+// Campo visivo della telecamera in gradi (FOV)
+const fov = 70;
+
+
+// Creazione di una telecamera prospettica con i seguenti parametri:
+// - size.width / size.height: Rapporto di aspetto della telecamera, che influenza la prospettiva
+// - 0.1: Distanza minima dal piano di proiezione (vicinanza)
+// - 100: Distanza massima dal piano di proiezione (lontananza)
 const camera = new THREE.PerspectiveCamera(fov, size.width / size.height, 0.1, 100);
-camera.position.set( 6 + resolution.x / 2 + 4, resolution.x / 2 + 1, resolution.y + 7);
+
+camera.position.set(6 + resolution.x / 2 + 4, resolution.x / 2 + 1, resolution.y + 7);
+
+//ALTO
+//camera.position.set(resolution.x / 2, resolution.y + 2, resolution.y / 2); 
+
+// Orientamento della telecamera
 camera.lookAt(new THREE.Vector3(0, 2.5, 0));
+
+//ALTO
+//camera.lookAt(new THREE.Vector3(resolution.x / 2, 0, resolution.y / 2));
 
 
 
@@ -334,12 +350,13 @@ snake.addEventListener('updated', function() {
 	if (snake.checkSelfCollision() || snake.checkEntitiesCollision(entities)) {
 		snake.die()
 		resetGame()
+    
 	}
 
-	// controllo se mangia
-	const headIndex = snake.indexes.at(-1);
+	// controllo se mangia: cerco se la posizione della caramella corrisponde con quella della caramella
+	const headIndex = snake.indexes.at(-1); //controllo dov'è il serpente
 	const candyIndex = candies.findIndex(
-		(candy) => candy.getIndexByCoord() === headIndex
+		(candy) => candy.getIndexByCoord() === headIndex //funzione callback
 	); 
 	// console.log(headIndex, candyIndex)
 	if (candyIndex >= 0) {
@@ -357,8 +374,8 @@ snake.addEventListener('updated', function() {
 })
 
 
-let scoreEntity; 
-let score = 0;
+let scoreEntity; //funzione estetica-->ogetto Mesh
+let score = 0; 
 
 function printScore() {
   if (!font) {
@@ -508,7 +525,7 @@ const entities = []; //alberi e rocce
   function addCandy() {
   const candy = new Candy(resolution);
 
-  let index = getFreeIndex();
+  let index = getFreeIndex(); //indice per posizione la caramella
 
   candy.mesh.position.x = index % resolution.x;
   candy.mesh.position.z = Math.floor(index / resolution.x );
@@ -523,15 +540,19 @@ addCandy();
 function getFreeIndex(){
   let index;
 
-  let candyIndexes = candies.map((candy)=> candy.getIndexByCoord() );
+  // Ottiene gli indici delle posizioni occupate dalle caramelle
+  let candyIndexes = candies.map(candy => candy.getIndexByCoord());
 
-  let entityIndexes = entities.map((entity)=> entity.getIndexByCoord() );
+  // Ottiene gli indici delle posizioni occupate dalle entità
+  let entityIndexes = entities.map(entity => entity.getIndexByCoord());
 
-
-  do{
-    index= Math.floor(Math.random() * resolution.x * resolution.y); 
-
-  }while (snake.indexes.includes(index) || candyIndexes.includes(index) || entityIndexes.includes(index)); 
+  do {
+    index = Math.floor(Math.random() * resolution.x * resolution.y); // Genera un indice casuale nella griglia
+  } while (
+    snake.indexes.includes(index) ||        // Controlla se l'indice è occupato dal serpente
+    candyIndexes.includes(index) ||         // Controlla se l'indice è occupato da altre caramelle
+    entityIndexes.includes(index)           // Controlla se l'indice è occupato da altre entità
+  );
   
     return index; 
 }
@@ -602,6 +623,7 @@ function toggleSnow() {
       snowImage.classList.add("snowImage");
       snow.show();
       updateInterval = 130; 
+
   } else {
       snowImage.classList.remove("snowImage");
       snow.hide(); // Nasconde immediatamente la neve
@@ -670,6 +692,12 @@ controls.enablePan = false;
 //target which represents the point towards which the camera is oriented. 
 controls.target.set(resolution.x / 2 + 4, 0, resolution.y / 2 + 4);
 
+// ALTO
+//controls.target.set(resolution.x / 2, 0, resolution.y / 2);
+
+// Update the controls to apply the changes
+controls.update();
+
 
 
 
@@ -734,8 +762,6 @@ mountainData.forEach(({ x, y, z, w }) => {
     delay: Math.random(), // Ritardo casuale per creare un effetto di sequenza
 });
 });
-
-
 
 const image = document.querySelector('.image')
 const posItems = document.querySelectorAll('.item')
@@ -866,3 +892,25 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+
+let isTopDownView = false;
+document.getElementById('viewImage').addEventListener('click', () => {
+  if (isTopDownView) {
+    // Switch to initial view
+    camera.position.set(6 + resolution.x / 2 + 4, resolution.x / 2 + 1, resolution.y + 7);
+    camera.lookAt(new THREE.Vector3(0, 2.5, 0));
+    controls.target.set(resolution.x / 2 + 4, 0, resolution.y / 2 + 4);
+  } else {
+    // Switch to top-down view
+
+    camera.position.set(resolution.x / 2, resolution.y + 10, resolution.y / 2);
+    camera.lookAt(new THREE.Vector3(resolution.x / 2, 0, resolution.y / 2));
+    controls.target.set(resolution.x / 2, 0, resolution.y / 2);
+  }
+
+  // Update the controls to apply the changes
+  controls.update();
+
+  // Toggle the view state
+  isTopDownView = !isTopDownView;
+});

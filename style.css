@@ -106,13 +106,25 @@ body, html {
 .snakeTitle {
   position: fixed;
   font-size: 110px;
-  font-family: 'Raleway', sans-serif; 
-  color: #edf7f7; 
+  font-family: 'Raleway', sans-serif;
+  color: #edf7f7;
   text-shadow: 3px 3px 0 #000, 6px 6px 0 #555, 9px 9px 0 #aaa; /* Effetto 3D con ombre multiple */
   margin-top: 60px;
   margin-left: 500px;
+  animation: glowAndFlicker 2s ease-in-out infinite alternate;
 }
 
+@keyframes glowAndFlicker {
+  0% {
+    text-shadow: 3px 3px 0 #000, 6px 6px 0 #555, 9px 9px 0 #aaa; /* Effetto 3D con ombre multiple */
+  }
+  50% {
+    text-shadow: 2px 2px 10px rgba(205, 202, 202, 0.8), 4px 4px 20px rgba(255, 255, 255, 0.8), 6px 6px 30px rgba(255, 255, 255, 0.8); /* Effetto di glow */
+  }
+  100% {
+    text-shadow: 3px 3px 0 #000, 6px 6px 0 #555, 9px 9px 0 #aaa; /* Ritorno all'effetto 3D con ombre multiple */
+  }
+}
 
 .volumImage{
 

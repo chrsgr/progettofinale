@@ -40,8 +40,8 @@ function animateSnakeImage() {
     gsap.from(snakeImage, {
         opacity: 0,         // Inizia con opacità 0
         scale: 0.5,         // Inizia con metà della dimensione
-        rotation: -180,     // Rotazione iniziale di -180 gradi (se desideri una rotazione in senso opposto)
-        duration: 1.5,      // Durata dell'animazione in secondi
+        rotation: -180,     // Rotazione iniziale di -180 gradi
+        duration: 1.5,      
         ease: 'back.out(1.7)'  // Tipo di easing con effetto di rimbalzo
     });
 
@@ -65,7 +65,7 @@ function animateFlowerHover() {
             gsap.to(flower, { 
                 scale: 1.5,             // Ingrandimento
                 rotation: '+=360',      // Rotazione di 360 gradi
-                duration: 0.5,          // Durata dell'animazione in secondi
+                duration: 0.5,          
                 ease: "power1.inOut"    // Easing per una transizione fluida
             });
         });
@@ -74,8 +74,8 @@ function animateFlowerHover() {
             gsap.to(flower, { 
                 scale: 1,               // Ripristina la dimensione originale
                 rotation: '+=360',      // Continua a ruotare di altri 360 gradi
-                duration: 0.5,          // Durata dell'animazione in secondi
-                ease: "power1.inOut"    // Easing per una transizione fluida
+                duration: 0.5,          
+                ease: "power1.inOut"    
             });
         });
     });

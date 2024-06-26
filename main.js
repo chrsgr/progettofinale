@@ -601,12 +601,11 @@ function toggleSnow() {
   if (!isSnowActive) {
       snowImage.classList.add("snowImage");
       snow.show();
-      updateInterval = 130; // Esempio di aumento dell'intervallo per velocità ridotta
-
+      updateInterval = 130; 
   } else {
       snowImage.classList.remove("snowImage");
       snow.hide(); // Nasconde immediatamente la neve
-      updateInterval = 300; // Intervallo iniziale di aggiornamento del serpente (velocità normale)
+      updateInterval = 300; 
 
     
   }

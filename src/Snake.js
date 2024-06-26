@@ -21,7 +21,7 @@ export default class Snake extends EventDispatcher {
     direction = RIGHT;
     newDirection = null;
 
-    speed = 300; 
+    
 
     constructor({ scene, resolution = new Vector2(10, 10) }) {
 		// creare la testa

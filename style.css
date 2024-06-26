@@ -126,6 +126,7 @@ body, html {
   }
 }
 
+
 .volumImage{
 
   position: absolute;
@@ -141,6 +142,15 @@ body, html {
   width: 40px; 
   height: auto;
   right: 80px; 
+  bottom: 40px; 
+  cursor: pointer; 
+}
+
+.view-Image{
+  position: absolute;
+  width: 40px; 
+  height: auto;
+  right: 145px; 
   bottom: 40px; 
   cursor: pointer; 
 }
@@ -195,7 +205,7 @@ body, html {
 }
 
 
-.start-image:hover, .stop-image:hover, .volumImage:hover, .snow-Image:hover, .infoImg:hover, .home-image:hover, .imgB :hover, .imgF :hover, .imgY :hover, .istruzioni-img :hover {
+.start-image:hover, .stop-image:hover, .volumImage:hover, .snow-Image:hover, .infoImg:hover, .home-image:hover, .imgB :hover, .imgF :hover, .imgY :hover, .istruzioni-img :hover, .view-Image :hover {
   opacity: 0.8; /* Effetto di opacità al passaggio del mouse */
   
 }

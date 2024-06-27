@@ -123,12 +123,6 @@ export default class Snake extends EventDispatcher {
                 break
         }
 
-        if (this.newDirection) {
-            const dot = this.direction.clone().normalize().dot(this.newDirection.clone().normalize())
-            if (dot !== 0) {
-                this.newDirection = null
-            }
-        }
     }
 
     update() {
